@@ -6,7 +6,7 @@ Docker CLI plugin to rename volumes.
 
 - Docker for Mac
 	- Docker >= 1.19.3
-- Python 3
+- Python >= 3.8
 
 ## Installation
 
