@@ -24,3 +24,10 @@ docker volumerename [-h] [--dyr-run] volume_from volume_to
 ```
 
 See detail with `docker volumerename --help`.
+
+## Reference
+
+- [Rename docker volume · Issue #31154 · moby/moby · GitHub](https://github.com/moby/moby/issues/31154)
+- [CLI Plugins Design · Issue #1534 · docker/cli · GitHub](https://github.com/docker/cli/issues/1534)
+- [cli-plugins: add concept of experimental plugin, only enabled in experimental mode by tiborvass · Pull Request #1898 · docker/cli · GitHub](https://github.com/docker/cli/pull/1898)
+- [Basic framework for writing and running CLI plugins by ijc · Pull Request #1564 · docker/cli · GitHub](https://github.com/docker/cli/pull/1564)
