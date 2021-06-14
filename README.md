@@ -17,6 +17,13 @@ curl -o docker-volumerename https://raw.githubusercontent.com/gh640/docker-volum
 chmod u+x docker-volumerename
 ```
 
+You can check if it's successfully installed:
+
+```bash
+docker 2>&1 | grep volumerename
+  volumerename*Rename a volume (Goto Hayato, 0.1.0)
+```
+
 ## Usage
 
 ```bash
