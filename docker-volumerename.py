@@ -56,6 +56,9 @@ def validate_args(parser, volume_from: str, volume_to: Optional[str]):
 	if not volume_exists(volume_from):
 		sys.exit(f'Volume `{volume_from}` not found.')
 
+	if volume_used(volume_from):
+		sys.exit(f'Volume `{volume_from}` is being used.')
+
 	if volume_exists(volume_to):
 		sys.exit(f'Volume `{volume_to}` already exists.')
 
@@ -86,6 +89,17 @@ def volume_exists(volume: str) -> bool:
 	"""Check if a volume exists."""
 	result = subprocess.run(['docker', 'volume', 'inspect', volume], capture_output=True)
 	return result.returncode == 0
+
+
+def volume_used(volume: str) -> bool:
+	"""Check if a volume is being used."""
+	result = subprocess.run([
+		'docker', 
+		'ps', 
+		f'--filter=volume={volume}',
+		'--quiet',
+	], capture_output=True)
+	return result.returncode == 0 and result.stdout.decode().rstrip() != ''
 
 
 def rename_volume(volume_from: str, volume_to: str, *, dry_run: bool):
